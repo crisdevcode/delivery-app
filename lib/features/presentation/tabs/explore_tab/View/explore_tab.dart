@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 // Colors
 import 'package:delivery/colors/colors.dart';
-// Swiper
-//! FIX
-// import 'package:flutter_swiper/flutter_swiper.dart';
 
 class ExploreTab extends StatelessWidget {
   const ExploreTab({super.key});
@@ -30,7 +27,9 @@ class ExploreTab extends StatelessWidget {
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 27.0)),
-                  )
+                  ),
+                  // Slider Restaurant cards
+                  _sliderCards(context)
                 ],
               ),
             )
@@ -78,44 +77,100 @@ Widget _topBar(BuildContext context) {
           onPressed: () {},
         ),
       ),
-      // Slider Restaurants
-      //! FIX
-      // _sliderCards()
     ],
   );
 }
-//! FIX
-/*
-Widget _sliderCards() {
+
+Widget _sliderCards(BuildContext context) {
+  // Responsive
+  // final size = MediaQuery.of(context).size;
+
   return Container(
-      height: 350.0,
-      child: Swiper(
-          itemCount: 4,
-          layout: SwiperLayout.DEFAULT,
-          itemBuilder: (BuildContext context, int index) {
-            return ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                return _card(context);
-              },
-            );
-          }));
+    width: double.infinity,
+    height: 350.0,
+    // color: Colors.red,
+    child: ListView.builder(
+      itemCount: 4,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (_, int index) {
+        return _card(context);
+      },
+    ),
+  );
 }
 
 Widget _card(BuildContext context) {
   return Container(
+    // color: Colors.green,
+    margin: const EdgeInsets.all(5.0),
     child: Column(
-      children: const <Widget>[
-        ClipRRect(
-          child: Image(
-            width: 200.0,
-            height: 250.0,
-            fit: BoxFit.cover,
-            image: NetworkImage('https://images.unsplash.com/photo-1619096252214-ef06c45683e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        GestureDetector(
+          onTap: () => {},
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: const FadeInImage(
+              width: 210.0,
+              height: 250.0,
+              placeholder: NetworkImage(
+                  'https://images.unsplash.com/photo-1619096252214-ef06c45683e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'),
+              image: NetworkImage(
+                  'https://images.unsplash.com/photo-1619096252214-ef06c45683e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'),
+              fit: BoxFit.cover,
+            ),
           ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 10.0),
+              child: const Text("QBano",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17.0)),
+            ),
+            Container(
+              child: const Text("Cl. 24 # 6-127",
+                  style: TextStyle(
+                      color: colorGray,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 13.0)),
+            ),
+            Row(
+              children: <Widget>[
+                const Icon(Icons.star, color: colorYellow, size: 16),
+                const Text("4.8",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13.0)),
+                Container(
+                  width: 85.0,
+                  height: 18.0,
+                  margin: const EdgeInsets.only(left: 10.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Navigator.pushNamed(context, 'tabs');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor:
+                          Theme.of(context).colorScheme.onPrimary, // text
+                      backgroundColor:
+                          Theme.of(context).colorScheme.secondary, // bg
+                      shape: const StadiumBorder(),
+                    ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                    child: const Text('Domicilio',
+                        style: TextStyle(color: Colors.white, fontSize: 11.0)),
+                  ),
+                )
+              ],
+            )
+          ],
         )
       ],
     ),
   );
 }
-*/
