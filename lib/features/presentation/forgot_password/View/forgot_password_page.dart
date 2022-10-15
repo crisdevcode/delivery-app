@@ -93,6 +93,5 @@ void _showForgotAlert(BuildContext context) {
       const AssetImage('assets/lock.png'),
       "Tu contraseña ha sido restablecida",
       "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña.",
-      "Hecho",
       doneButton(context, "Hecho"));
 }
