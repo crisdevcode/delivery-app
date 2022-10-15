@@ -1,7 +1,8 @@
-import 'dart:ui';
-
-import 'package:delivery/features/presentation/login_page/View/login_page.dart';
 import 'package:flutter/material.dart';
+// UI
+import 'dart:ui';
+// Common Widgets
+import 'package:delivery/features/presentation/common_widgets/header_text.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -29,13 +30,9 @@ class WelcomePage extends StatelessWidget {
           children: [
             // Title
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: const Text('DELIVERED FAST FOOD TO YOUR DOOR',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 45.0)),
-            ),
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: headerText('DELIVERED FAST FOOD TO YOUR DOOR',
+                    Colors.white, FontWeight.bold, 45.0)),
             // Description
             Container(
               padding:
@@ -48,7 +45,6 @@ class WelcomePage extends StatelessWidget {
                       fontSize: 17.0)),
             ),
 
-            //! FIX THIS
             // Buttons
             Container(
               width: 350.0,
@@ -59,17 +55,17 @@ class WelcomePage extends StatelessWidget {
                   Navigator.pushNamed(context, 'login');
                 },
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.onPrimary, // text
-                  backgroundColor: Theme.of(context).colorScheme.secondary, // bg
+                  foregroundColor:
+                      Theme.of(context).colorScheme.onPrimary, // text
+                  backgroundColor:
+                      Theme.of(context).colorScheme.secondary, // bg
                   shape: const StadiumBorder(),
                 ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-                child: const Text('Iniciar Sesión', style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15.0
-                )),
+                child: const Text('Iniciar Sesión',
+                    style: TextStyle(color: Colors.white, fontSize: 15.0)),
               ),
             ),
-            
+
             Container(
               width: 350.0,
               height: 45.0,
@@ -79,24 +75,25 @@ class WelcomePage extends StatelessWidget {
                   print('click');
                 },
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.onPrimary, // text
+                  foregroundColor:
+                      Theme.of(context).colorScheme.onPrimary, // text
                   backgroundColor: Theme.of(context).colorScheme.primary, // bg
                   shape: const StadiumBorder(),
                 ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:   [
-                     const Image(
-                      image: NetworkImage('https://cdn-icons-png.flaticon.com/512/733/733547.png'),
+                  children: [
+                    const Image(
+                      image: NetworkImage(
+                          'https://cdn-icons-png.flaticon.com/512/733/733547.png'),
                       width: 20.0,
                       height: 20.0,
                     ),
-                     Container(
+                    Container(
                       margin: const EdgeInsets.only(left: 10.0),
-                      child: const Text('Conectar con Facebook', style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.0
-                      )),
+                      child: const Text('Conectar con Facebook',
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 15.0)),
                     )
                   ],
                 ),
