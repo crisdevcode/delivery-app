@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // Colors
 import 'package:delivery/colors/colors.dart';
+// Common Widgets
+import 'package:delivery/features/presentation/common_widgets/header_text.dart';
 
 class ExploreTab extends StatelessWidget {
   const ExploreTab({super.key});
@@ -20,14 +22,11 @@ class ExploreTab extends StatelessWidget {
                   _topBar(context),
                   // Discover restaurants
                   Container(
-                    margin: const EdgeInsets.symmetric(vertical: 20.0),
-                    alignment: Alignment.centerLeft,
-                    child: const Text('Descubre nuevos lugares',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 27.0)),
-                  ),
+                      margin: const EdgeInsets.symmetric(vertical: 20.0),
+                      alignment: Alignment.centerLeft,
+                      child: headerText('Descubre nuevos lugares', Colors.black,
+                          FontWeight.bold, 27.0)),
+
                   // Slider Restaurant cards
                   _sliderCards(context)
                 ],

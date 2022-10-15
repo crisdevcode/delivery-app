@@ -1,14 +1,12 @@
 import 'package:delivery/colors/colors.dart';
-import 'package:delivery/features/presentation/widgets/back_button.dart';
+import 'package:delivery/features/presentation/common_widgets/back_button.dart';
 import 'package:flutter/material.dart';
-
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         body: Column(
       children: [
@@ -72,22 +70,23 @@ class LoginPage extends StatelessWidget {
                                 style: TextStyle(
                                     color: colorGray,
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 15.0
-                                    )),      
-                               GestureDetector(
-                                onTap: () {
-                                  Navigator.pushNamed(context, 'sign-up');
-                                },
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 10.0),
-                                  child: Text('Registrate aquí', style: TextStyle(
-                                          color: Theme.of(context).colorScheme.secondary,
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 15.0
-                                      )
-                                    ),
-                                ),
+                                    fontSize: 15.0)),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, 'sign-up');
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: 10.0),
+                                child: Text('Registrate aquí',
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15.0)),
                               ),
+                            ),
                           ],
                         ))
                   ],
