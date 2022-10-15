@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:delivery/features/presentation/common_widgets/header_text.dart';
 
-void showAlertDialog(
-    BuildContext context,
-    ImageProvider<Object> imagePath,
-    String headerTitle,
-    String headerSubTitle,
-    String labelButton,
-    Widget buttonDone) {
-  showDialog(
+Future showAlertDialog(BuildContext context, ImageProvider<Object> imagePath,
+    String headerTitle, String headerSubTitle, Widget buttonDone) async {
+  await showDialog(
       context: context,
       barrierDismissible: true,
       builder: (BuildContext context) {
