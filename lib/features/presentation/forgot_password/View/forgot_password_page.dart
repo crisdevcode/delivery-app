@@ -1,3 +1,5 @@
+import 'package:delivery/features/presentation/common_widgets/alert_dialog.dart';
+import 'package:delivery/features/presentation/common_widgets/done_button.dart';
 import 'package:flutter/material.dart';
 // Common Widgets
 import 'package:delivery/features/presentation/common_widgets/back_button.dart';
@@ -82,62 +84,15 @@ Widget _buttonSend(BuildContext context) {
   );
 }
 
+// AssetImage('assets/lock.png')
+// "Tu contraseña ha sido restablecida"
+// "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña."
 void _showForgotAlert(BuildContext context) {
-  showDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (BuildContext context) {
-        return AlertDialog(
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            content: Container(
-              height: 400,
-              child: Column(
-                children: <Widget>[
-                  const Image(
-                    image: AssetImage('assets/lock.png'),
-                    width: 130,
-                    height: 130,
-                  ),
-                  Container(
-                      margin: const EdgeInsets.all(15.0),
-                      child: headerText(
-                          "Tu contraseña ha sido restablecida",
-                          Theme.of(context).primaryColor,
-                          FontWeight.bold,
-                          20.0)),
-                  Container(
-                    margin: const EdgeInsets.all(15.0),
-                    child: Text(
-                        "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña.",
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15.0)),
-                  ),
-                  _buttonDone(context)
-                ],
-              ),
-            ));
-      });
-}
-
-Widget _buttonDone(BuildContext context) {
-  return Container(
-    width: 350.0,
-    height: 45.0,
-    margin: const EdgeInsets.only(top: 40.0),
-    child: ElevatedButton(
-      onPressed: () {
-        Navigator.pushNamed(context, 'login');
-      },
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Theme.of(context).colorScheme.onPrimary, // text
-        backgroundColor: Theme.of(context).colorScheme.secondary, // bg
-        shape: const StadiumBorder(),
-      ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-      child: const Text('¡Hecho!',
-          style: TextStyle(color: Colors.white, fontSize: 17.0)),
-    ),
-  );
+  showAlertDialog(
+      context,
+      const AssetImage('assets/lock.png'),
+      "Tu contraseña ha sido restablecida",
+      "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña.",
+      "Hecho",
+      doneButton(context, "Hecho"));
 }
