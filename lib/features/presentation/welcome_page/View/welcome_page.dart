@@ -34,8 +34,10 @@ class WelcomePage extends StatelessWidget {
             // Title
             Container(
                 padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                child: headerText('DELIVERED FAST FOOD TO YOUR DOOR',
-                    Colors.white, FontWeight.bold, 45.0)),
+                child: headerText(
+                    text: 'DELIVERED FAST FOOD TO YOUR DOOR',
+                    color: Colors.white,
+                    fontSize: 45.0)),
             // Description
             Container(
               padding:

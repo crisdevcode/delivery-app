@@ -25,7 +25,9 @@ Future showAlertDialog(BuildContext context, ImageProvider<Object> imagePath,
                   Container(
                       margin: const EdgeInsets.all(15.0),
                       child: headerText(
-                          headerTitle, colorPrimary, FontWeight.bold, 20.0)),
+                          text: headerTitle,
+                          color: colorPrimary,
+                          fontSize: 20.0)),
                   Container(
                     margin: const EdgeInsets.all(15.0),
                     child: Text(headerSubTitle,

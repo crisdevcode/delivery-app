@@ -28,7 +28,9 @@ class ForgotPassword extends StatelessWidget {
           child: Column(
             children: [
               headerText(
-                  'Recuperar contraseña', colorPrimary, FontWeight.bold, 30.0),
+                  text: 'Recuperar contraseña',
+                  color: colorPrimary,
+                  fontSize: 20.0),
               Container(
                 padding: const EdgeInsets.all(6.0),
                 child: const Text(
