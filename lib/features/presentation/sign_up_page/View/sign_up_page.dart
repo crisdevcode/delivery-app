@@ -1,3 +1,4 @@
+import 'package:delivery/features/presentation/common_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 // Colors
 import 'package:delivery/colors/colors.dart';
@@ -22,19 +23,19 @@ class SignUpPage extends StatelessWidget {
           padding: const EdgeInsets.all(30),
           child: Column(
             children: <Widget>[
-              // Text('Crear una cuenta',
-              //     style: TextStyle(
-              //         color: Theme.of(context).primaryColor,
-              //         fontWeight: FontWeight.bold,
-              //         fontSize: 30.0)),
-              headerText('Crear una cuenta', Theme.of(context).primaryColor,
-                  FontWeight.bold, 30.0),
+              headerText(
+                  'Crear una cuenta', colorPrimary, FontWeight.bold, 30.0),
               _usernameInput(context),
               _emailInput(context),
               _phoneInput(context),
               _dateOfBirthInput(context),
               _passwordInput(context),
-              _signUpButton(context),
+              roundedButton(
+                  labelButton: "Registrarse",
+                  color: colorOrange,
+                  func: () {
+                    Navigator.pushNamed(context, "tabs");
+                  }),
               Container(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 40.0),
@@ -125,24 +126,6 @@ Widget _passwordInput(BuildContext context) {
       decoration: InputDecoration(
           hintText: 'Contraseña',
           border: OutlineInputBorder(borderSide: BorderSide.none)),
-    ),
-  );
-}
-
-Widget _signUpButton(BuildContext context) {
-  return Container(
-    width: 350.0,
-    height: 45.0,
-    margin: const EdgeInsets.only(top: 30.0),
-    child: ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Theme.of(context).colorScheme.onPrimary, // text
-        backgroundColor: Theme.of(context).colorScheme.secondary, // bg
-        shape: const StadiumBorder(),
-      ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-      child: const Text('Registrarse',
-          style: TextStyle(color: Colors.white, fontSize: 15.0)),
     ),
   );
 }

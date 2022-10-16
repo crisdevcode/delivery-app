@@ -172,8 +172,7 @@ Widget _card(BuildContext context) {
                     style: ElevatedButton.styleFrom(
                       foregroundColor:
                           Theme.of(context).colorScheme.onPrimary, // text
-                      backgroundColor:
-                          Theme.of(context).colorScheme.secondary, // bg
+                      backgroundColor: colorOrange, // bg
                       shape: const StadiumBorder(),
                     ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                     child: const Text('Domicilio',
@@ -278,8 +277,7 @@ Widget _popularItem(BuildContext context, String photo) {
                           style: ElevatedButton.styleFrom(
                             foregroundColor:
                                 Theme.of(context).colorScheme.onPrimary, // text
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary, // bg
+                            backgroundColor: colorOrange, // bg
                             shape: const StadiumBorder(),
                           ).copyWith(
                               elevation: ButtonStyleButton.allOrNull(0.0)),

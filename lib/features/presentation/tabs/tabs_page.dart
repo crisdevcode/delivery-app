@@ -1,4 +1,6 @@
+import 'package:delivery/colors/colors.dart';
 import 'package:delivery/features/presentation/common_widgets/alert_dialog.dart';
+import 'package:delivery/features/presentation/common_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 // Tabs
@@ -54,7 +56,7 @@ class _TabsPageState extends State<TabsPage> {
   Widget _bottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
       iconSize: 30.0,
-      selectedItemColor: Theme.of(context).colorScheme.secondary,
+      selectedItemColor: colorOrange,
       unselectedItemColor: Colors.grey,
       currentIndex: _selectedItemIndex, // Render a page tab: 0,1,2,3
       onTap: _changeWidget,
@@ -77,26 +79,11 @@ class _TabsPageState extends State<TabsPage> {
         const AssetImage('assets/location.png'),
         "Habilita tu ubicación",
         "Por favor habilita tu ubicación para mostrar los restaurantes más cercanos en el mapa.",
-        _doneButton(context, "Habilitar"));
-  }
-
-  Widget _doneButton(BuildContext context, String labelButton) {
-    return Container(
-      width: 350.0,
-      height: 45.0,
-      margin: const EdgeInsets.only(top: 40.0),
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, "login");
-        },
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Theme.of(context).colorScheme.onPrimary, // text
-          backgroundColor: Theme.of(context).colorScheme.secondary, // bg
-          shape: const StadiumBorder(),
-        ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-        child: Text(labelButton,
-            style: const TextStyle(color: Colors.white, fontSize: 17.0)),
-      ),
-    );
+        roundedButton(
+            labelButton: "Habilitar",
+            color: colorOrange,
+            func: () {
+              print("Habilitado!");
+            }));
   }
 }

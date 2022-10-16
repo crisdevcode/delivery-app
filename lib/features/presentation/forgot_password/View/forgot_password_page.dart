@@ -1,9 +1,11 @@
-import 'package:delivery/features/presentation/common_widgets/alert_dialog.dart';
-import 'package:delivery/features/presentation/common_widgets/done_button.dart';
 import 'package:flutter/material.dart';
+// Colors
+import 'package:delivery/colors/colors.dart';
 // Common Widgets
 import 'package:delivery/features/presentation/common_widgets/back_button.dart';
 import 'package:delivery/features/presentation/common_widgets/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/rounded_button.dart';
+import 'package:delivery/features/presentation/common_widgets/alert_dialog.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -25,8 +27,8 @@ class ForgotPassword extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: [
-              headerText('Recuperar contraseña', Theme.of(context).primaryColor,
-                  FontWeight.bold, 30.0),
+              headerText(
+                  'Recuperar contraseña', colorPrimary, FontWeight.bold, 30.0),
               Container(
                 padding: const EdgeInsets.all(6.0),
                 child: const Text(
@@ -38,7 +40,12 @@ class ForgotPassword extends StatelessWidget {
                         fontSize: 15.0)),
               ),
               _emailInput(),
-              _buttonSend(context)
+              roundedButton(
+                  labelButton: 'Enviar',
+                  color: colorOrange,
+                  func: () {
+                    _showForgotAlert(context);
+                  })
             ],
           ),
         ),
@@ -63,35 +70,16 @@ Widget _emailInput() {
   );
 }
 
-Widget _buttonSend(BuildContext context) {
-  return Container(
-    width: 350.0,
-    height: 45.0,
-    margin: const EdgeInsets.only(top: 30.0),
-    child: ElevatedButton(
-      onPressed: () {
-        // Success Alert Modal
-        _showForgotAlert(context);
-      },
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Theme.of(context).colorScheme.onPrimary, // text
-        backgroundColor: Theme.of(context).colorScheme.secondary, // bg
-        shape: const StadiumBorder(),
-      ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-      child: const Text('Enviar',
-          style: TextStyle(color: Colors.white, fontSize: 15.0)),
-    ),
-  );
-}
-
-// AssetImage('assets/lock.png')
-// "Tu contraseña ha sido restablecida"
-// "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña."
 void _showForgotAlert(BuildContext context) {
   showAlertDialog(
       context,
       const AssetImage('assets/lock.png'),
       "Tu contraseña ha sido restablecida",
       "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña.",
-      doneButton(context, "Hecho"));
+      roundedButton(
+          labelButton: "Listo",
+          color: colorOrange,
+          func: () {
+            Navigator.pushNamed(context, 'login');
+          }));
 }
