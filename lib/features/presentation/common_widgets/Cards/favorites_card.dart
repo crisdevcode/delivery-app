@@ -86,6 +86,7 @@ Widget favoritesCard(
                       fontSize: 13.0),
                   headerText(
                       text: rating,
+                      color: colorGray,
                       fontWeight: FontWeight.w500,
                       fontSize: 13.0),
                   Container(
