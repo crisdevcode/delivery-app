@@ -1,6 +1,6 @@
 import 'package:delivery/colors/colors.dart';
-import 'package:delivery/features/presentation/common_widgets/alert_dialog.dart';
-import 'package:delivery/features/presentation/common_widgets/rounded_button.dart';
+import 'package:delivery/features/presentation/common_widgets/Alerts/alert_dialog.dart';
+import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 // Tabs

@@ -1,7 +1,7 @@
 import 'package:delivery/features/presentation/filter_page/customWidgets/price_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:delivery/colors/colors.dart';
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
 import 'package:delivery/features/presentation/filter_page/customWidgets/list_tile_checked.dart';
 import 'package:delivery/features/presentation/filter_page/customWidgets/cuisines_filter.dart';
 

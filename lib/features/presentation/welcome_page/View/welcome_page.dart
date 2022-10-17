@@ -4,8 +4,8 @@ import 'dart:ui';
 // Colors
 import 'package:delivery/colors/colors.dart';
 // Common Widgets
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
-import 'package:delivery/features/presentation/common_widgets/rounded_button.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});

@@ -1,3 +1,4 @@
+import 'package:delivery/features/presentation/colletions_page/View/collections_page.dart';
 import 'package:flutter/material.dart';
 
 // Pages
@@ -17,4 +18,5 @@ final routes = <String, WidgetBuilder>{
   'tabs': (BuildContext context) => const TabsPage(),
   'search': (BuildContext context) => const SearchView(),
   'filter': (BuildContext context) => const FilterPage(),
+  'collections': (BuildContext context) => const CollectionsPages(),
 };

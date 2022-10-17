@@ -1,10 +1,10 @@
-import 'package:delivery/features/presentation/common_widgets/populares_card.dart';
+import 'package:delivery/features/presentation/common_widgets/Cards/populares_card.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 // Colors
 import 'package:delivery/colors/colors.dart';
 // Common Widgets
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
 
 class ExploreTab extends StatelessWidget {
   const ExploreTab({super.key});
@@ -69,7 +69,11 @@ class ExploreTab extends StatelessWidget {
                   const SizedBox(
                     height: 10.0,
                   ),
-                  _headers(context, "Colecciones", "Ver todo"),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, 'collections');
+                      },
+                      child: _headers(context, "Categorías", "Ver todo")),
                   _sliderCollections(),
                 ],
               ),

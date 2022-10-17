@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:delivery/colors/colors.dart';
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
-import 'package:delivery/features/presentation/common_widgets/header_double.dart';
-import 'package:delivery/features/presentation/common_widgets/populares_card.dart';
-import 'package:delivery/features/presentation/common_widgets/card_vertical.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_double.dart';
+import 'package:delivery/features/presentation/common_widgets/Cards/populares_card.dart';
+import 'package:delivery/features/presentation/common_widgets/Cards/card_vertical.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});

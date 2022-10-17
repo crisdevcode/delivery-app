@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 // Colors
 import 'package:delivery/colors/colors.dart';
 // Common Widgets
-import 'package:delivery/features/presentation/common_widgets/back_button.dart';
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
-import 'package:delivery/features/presentation/common_widgets/rounded_button.dart';
-import 'package:delivery/features/presentation/common_widgets/alert_dialog.dart';
+import 'package:delivery/features/presentation/common_widgets/BackButtons/back_button.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
+import 'package:delivery/features/presentation/common_widgets/Alerts/alert_dialog.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
