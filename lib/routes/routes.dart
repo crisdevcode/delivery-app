@@ -1,5 +1,3 @@
-import 'package:delivery/features/presentation/collections_detail_page/View/collection_detail_page.dart';
-import 'package:delivery/features/presentation/colletions_page/View/collections_page.dart';
 import 'package:flutter/material.dart';
 
 // Pages
@@ -10,6 +8,9 @@ import 'package:delivery/features/presentation/sign_up_page/View/sign_up_page.da
 import 'package:delivery/features/presentation/tabs/tabs_page.dart';
 import 'package:delivery/features/presentation/search_page/View/search_view.dart';
 import 'package:delivery/features/presentation/filter_page/View/filter_page.dart';
+import 'package:delivery/features/presentation/colletions_page/View/collections_page.dart';
+import 'package:delivery/features/presentation/collections_detail_page/View/collection_detail_page.dart';
+import 'package:delivery/features/presentation/place_detail_page/View/place_detail_page.dart';
 
 final routes = <String, WidgetBuilder>{
   'welcome': (BuildContext context) => const WelcomePage(),
@@ -21,4 +22,5 @@ final routes = <String, WidgetBuilder>{
   'filter': (BuildContext context) => const FilterPage(),
   'collections': (BuildContext context) => const CollectionsPages(),
   'collections-detail': (BuildContext context) => const CollectionDetailPage(),
+  'place-detail': (BuildContext context) => const PlaceDetailPage(),
 };

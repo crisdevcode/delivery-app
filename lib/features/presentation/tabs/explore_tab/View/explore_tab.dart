@@ -150,77 +150,84 @@ Widget _sliderCards(BuildContext context) {
   );
 }
 
+//! FIX: No reacciona al click en la imagen
 Widget _card(BuildContext context) {
-  return Container(
-    // color: Colors.green,
-    margin: const EdgeInsets.all(5.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        GestureDetector(
-          onTap: () => {},
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: const FadeInImage(
-              width: 210.0,
-              height: 250.0,
-              placeholder: NetworkImage(
-                  'https://images.unsplash.com/photo-1619096252214-ef06c45683e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'),
-              image: NetworkImage(
-                  'https://images.unsplash.com/photo-1619096252214-ef06c45683e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'),
-              fit: BoxFit.cover,
+  return GestureDetector(
+    onTap: () {
+      Navigator.pushNamed(context, "place-detail");
+    },
+    child: Container(
+      // color: Colors.green,
+      margin: const EdgeInsets.all(5.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          GestureDetector(
+            onTap: () => {},
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: const FadeInImage(
+                width: 210.0,
+                height: 250.0,
+                placeholder: NetworkImage(
+                    'https://images.unsplash.com/photo-1619096252214-ef06c45683e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'),
+                image: NetworkImage(
+                    'https://images.unsplash.com/photo-1619096252214-ef06c45683e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 10.0),
-              child: const Text("QBano",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17.0)),
-            ),
-            Container(
-              child: const Text("Cl. 24 # 6-127, Ipiales",
-                  style: TextStyle(
-                      color: colorGray,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 13.0)),
-            ),
-            Row(
-              children: <Widget>[
-                const Icon(Icons.star, color: colorYellow, size: 16),
-                const Text("4.8",
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 10.0),
+                child: const Text("QBano",
                     style: TextStyle(
                         color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17.0)),
+              ),
+              Container(
+                child: const Text("Cl. 24 # 6-127, Ipiales",
+                    style: TextStyle(
+                        color: colorGray,
                         fontWeight: FontWeight.w500,
                         fontSize: 13.0)),
-                Container(
-                  width: 85.0,
-                  height: 18.0,
-                  margin: const EdgeInsets.only(left: 10.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigator.pushNamed(context, 'tabs');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor:
-                          Theme.of(context).colorScheme.onPrimary, // text
-                      backgroundColor: colorOrange, // bg
-                      shape: const StadiumBorder(),
-                    ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-                    child: const Text('Domicilio',
-                        style: TextStyle(color: Colors.white, fontSize: 11.0)),
-                  ),
-                )
-              ],
-            )
-          ],
-        )
-      ],
+              ),
+              Row(
+                children: <Widget>[
+                  const Icon(Icons.star, color: colorYellow, size: 16),
+                  const Text("4.8",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13.0)),
+                  Container(
+                    width: 85.0,
+                    height: 18.0,
+                    margin: const EdgeInsets.only(left: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Navigator.pushNamed(context, 'tabs');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor:
+                            Theme.of(context).colorScheme.onPrimary, // text
+                        backgroundColor: colorOrange, // bg
+                        shape: const StadiumBorder(),
+                      ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                      child: const Text('Domicilio',
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 11.0)),
+                    ),
+                  )
+                ],
+              )
+            ],
+          )
+        ],
+      ),
     ),
   );
 }
