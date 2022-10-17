@@ -119,7 +119,9 @@ Widget _topBar(BuildContext context) {
             borderRadius: BorderRadius.circular(30)),
         child: IconButton(
           icon: const Icon(Icons.filter_list, size: 30, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, 'filter');
+          },
         ),
       ),
     ],
