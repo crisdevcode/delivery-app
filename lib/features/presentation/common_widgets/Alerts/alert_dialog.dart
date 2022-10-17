@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // Headers
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
 // Colors
 import 'package:delivery/colors/colors.dart';
 
