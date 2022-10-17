@@ -3,7 +3,7 @@ import 'package:delivery/colors/colors.dart';
 import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
 import 'package:delivery/features/presentation/common_widgets/Headers/header_double.dart';
 import 'package:delivery/features/presentation/common_widgets/Cards/populares_card.dart';
-import 'package:delivery/features/presentation/common_widgets/Cards/card_vertical.dart';
+import 'package:delivery/features/presentation/common_widgets/Cards/vertical_card.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -94,7 +94,7 @@ Widget _sliderRecentSearch() {
       itemCount: 4,
       scrollDirection: Axis.horizontal,
       itemBuilder: (BuildContext context, int index) {
-        return cardVertical(
+        return VerticalCard(
             context: context,
             width: 160.0,
             height: 120.0,

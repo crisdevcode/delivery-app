@@ -2,7 +2,7 @@ import 'package:delivery/features/presentation/common_widgets/Headers/header_tex
 import 'package:flutter/material.dart';
 import 'package:delivery/colors/colors.dart';
 
-Widget cardVertical({
+Widget VerticalCard({
   BuildContext? context,
   required double width,
   required double height,
