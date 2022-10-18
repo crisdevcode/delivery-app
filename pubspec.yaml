@@ -68,6 +68,16 @@ flutter:
    - assets/share.png
    - assets/plus_order.png
    - assets/emptyOrder.png
+   - assets/crown.png
+   - assets/noti.png
+   - assets/payicon.png
+   - assets/rewardicon.png
+   - assets/promoicon.png
+   - assets/settingicon.png
+   - assets/inviteicon.png
+   - assets/helpicon.png
+   - assets/abouticon.png
+   - assets/logout.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
