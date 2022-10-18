@@ -9,3 +9,4 @@ const colorOrange = Color.fromRGBO(255, 140, 0, 1.0);
 const colorFbButton = Color.fromRGBO(0, 122, 255, 1.0);
 const colorPrimary = Color.fromRGBO(10, 31, 68, 1.0);
 const colorOrangeWithHalfOpacity = Color.fromRGBO(255, 140, 0, 0.5);
+const colorWhite = Colors.white;
