@@ -14,8 +14,9 @@ class ListOrderView extends StatelessWidget {
         elevation: 0.5,
         leading: const Text(''),
         backgroundColor: colorWhite,
+        centerTitle: true,
         title: headerText(
-            text: 'Orders',
+            text: 'Mis pedidos',
             color: colorPrimary,
             fontSize: 17,
             fontWeight: FontWeight.w600),
