@@ -1,5 +1,6 @@
 import 'package:delivery/colors/colors.dart';
-import 'package:delivery/features/presentation/common_widgets/back_button.dart';
+import 'package:delivery/features/presentation/common_widgets/BackButtons/back_button.dart';
+import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -35,9 +36,9 @@ class LoginPage extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: [
-                    Text("Bienvenid@",
+                    const Text("Bienvenid@",
                         style: TextStyle(
-                            color: Theme.of(context).primaryColor,
+                            color: colorPrimary,
                             fontWeight: FontWeight.bold,
                             fontSize: 30.0)),
                     const Text("Ingresa con tu cuenta",
@@ -47,7 +48,12 @@ class LoginPage extends StatelessWidget {
                             fontSize: 15.0)),
                     _emailInput(),
                     _passwordInput(),
-                    _buttonLogin(context),
+                    roundedButton(
+                        labelButton: "Iniciar sesión",
+                        color: colorOrange,
+                        func: () {
+                          Navigator.pushNamed(context, 'tabs');
+                        }),
                     Container(
                       margin: const EdgeInsets.only(top: 30.0),
                       child: GestureDetector(
@@ -78,11 +84,9 @@ class LoginPage extends StatelessWidget {
                               child: Container(
                                 margin: const EdgeInsets.symmetric(
                                     horizontal: 10.0),
-                                child: Text('Registrate aquí',
+                                child: const Text('Registrate aquí',
                                     style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
+                                        color: colorOrange,
                                         fontWeight: FontWeight.w400,
                                         fontSize: 15.0)),
                               ),
@@ -129,26 +133,6 @@ Widget _passwordInput() {
       decoration: InputDecoration(
           hintText: 'Contraseña',
           border: OutlineInputBorder(borderSide: BorderSide.none)),
-    ),
-  );
-}
-
-Widget _buttonLogin(BuildContext context) {
-  return Container(
-    width: 350.0,
-    height: 45.0,
-    margin: const EdgeInsets.only(top: 30.0),
-    child: ElevatedButton(
-      onPressed: () {
-        Navigator.pushNamed(context, 'tabs');
-      },
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Theme.of(context).colorScheme.onPrimary, // text
-        backgroundColor: Theme.of(context).colorScheme.secondary, // bg
-        shape: const StadiumBorder(),
-      ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-      child: const Text('Iniciar Sesión',
-          style: TextStyle(color: Colors.white, fontSize: 17.0)),
     ),
   );
 }

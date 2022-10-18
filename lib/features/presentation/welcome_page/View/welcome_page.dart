@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 // UI
 import 'dart:ui';
+// Colors
+import 'package:delivery/colors/colors.dart';
 // Common Widgets
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
+import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -31,8 +34,10 @@ class WelcomePage extends StatelessWidget {
             // Title
             Container(
                 padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                child: headerText('DELIVERED FAST FOOD TO YOUR DOOR',
-                    Colors.white, FontWeight.bold, 45.0)),
+                child: headerText(
+                    text: 'DELIVERED FAST FOOD TO YOUR DOOR',
+                    color: Colors.white,
+                    fontSize: 45.0)),
             // Description
             Container(
               padding:
@@ -44,9 +49,32 @@ class WelcomePage extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontSize: 17.0)),
             ),
-
             // Buttons
-            Container(
+            // Login with email
+            roundedButton(
+                labelButton: 'Iniciar Sesión',
+                color: colorOrange,
+                func: () {
+                  Navigator.pushNamed(context, 'login');
+                }),
+            // Login with facebook
+            roundedButton(
+                labelButton: "Conectar con Facebook",
+                color: colorFbButton,
+                isWithIcon: true,
+                icon: const AssetImage('assets/facebook.png'),
+                func: () {
+                  print('Login facebook');
+                })
+          ],
+        )
+      ],
+    ));
+  }
+}
+
+/**
+ * Container(
               width: 350.0,
               height: 45.0,
               margin: const EdgeInsets.only(top: 40.0),
@@ -61,47 +89,8 @@ class WelcomePage extends StatelessWidget {
                       Theme.of(context).colorScheme.secondary, // bg
                   shape: const StadiumBorder(),
                 ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-                child: const Text('Iniciar Sesión',
+                child: const Text(,
                     style: TextStyle(color: Colors.white, fontSize: 15.0)),
               ),
             ),
-
-            Container(
-              width: 350.0,
-              height: 45.0,
-              margin: const EdgeInsets.only(top: 15.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  print('click');
-                },
-                style: ElevatedButton.styleFrom(
-                  foregroundColor:
-                      Theme.of(context).colorScheme.onPrimary, // text
-                  backgroundColor: Theme.of(context).colorScheme.primary, // bg
-                  shape: const StadiumBorder(),
-                ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Image(
-                      image: NetworkImage(
-                          'https://cdn-icons-png.flaticon.com/512/733/733547.png'),
-                      width: 20.0,
-                      height: 20.0,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 10.0),
-                      child: const Text('Conectar con Facebook',
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 15.0)),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        )
-      ],
-    ));
-  }
-}
+ */

@@ -1,3 +1,6 @@
+import 'package:delivery/colors/colors.dart';
+import 'package:delivery/features/presentation/common_widgets/Alerts/alert_dialog.dart';
+import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 // Tabs
@@ -14,6 +17,15 @@ class TabsPage extends StatefulWidget {
 }
 
 class _TabsPageState extends State<TabsPage> {
+  @override
+  void initState() {
+    // initState for enable location
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      _requestLocation(context);
+    });
+  }
+
   // Tabs array options
   final List<Widget> _widgetOptions = [
     const ExploreTab(),
@@ -44,7 +56,7 @@ class _TabsPageState extends State<TabsPage> {
   Widget _bottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
       iconSize: 30.0,
-      selectedItemColor: Theme.of(context).colorScheme.secondary,
+      selectedItemColor: colorOrange,
       unselectedItemColor: Colors.grey,
       currentIndex: _selectedItemIndex, // Render a page tab: 0,1,2,3
       onTap: _changeWidget,
@@ -59,5 +71,19 @@ class _TabsPageState extends State<TabsPage> {
             icon: Icon(Icons.person_pin), label: 'Mi Perfil')
       ],
     );
+  }
+
+  Future _requestLocation(BuildContext context) async {
+    await showAlertDialog(
+        context,
+        const AssetImage('assets/location.png'),
+        "Habilita tu ubicación",
+        "Por favor habilita tu ubicación para mostrar los restaurantes más cercanos en el mapa.",
+        roundedButton(
+            labelButton: "Habilitar",
+            color: colorOrange,
+            func: () {
+              print("Habilitado!");
+            }));
   }
 }

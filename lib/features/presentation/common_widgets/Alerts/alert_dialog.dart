@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:delivery/features/presentation/common_widgets/header_text.dart';
+// Headers
+import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
+// Colors
+import 'package:delivery/colors/colors.dart';
 
-void showAlertDialog(
-    BuildContext context,
-    ImageProvider<Object> imagePath,
-    String headerTitle,
-    String headerSubTitle,
-    String labelButton,
-    Widget buttonDone) {
-  showDialog(
+Future showAlertDialog(BuildContext context, ImageProvider<Object> imagePath,
+    String headerTitle, String headerSubTitle, Widget buttonDone) async {
+  await showDialog(
       context: context,
       barrierDismissible: true,
       builder: (BuildContext context) {
@@ -27,15 +25,14 @@ void showAlertDialog(
                   Container(
                       margin: const EdgeInsets.all(15.0),
                       child: headerText(
-                          headerTitle,
-                          Theme.of(context).primaryColor,
-                          FontWeight.bold,
-                          20.0)),
+                          text: headerTitle,
+                          color: colorPrimary,
+                          fontSize: 20.0)),
                   Container(
                     margin: const EdgeInsets.all(15.0),
                     child: Text(headerSubTitle,
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
+                        style: const TextStyle(
+                            color: colorPrimary,
                             fontWeight: FontWeight.w400,
                             fontSize: 15.0)),
                   ),
