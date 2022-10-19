@@ -10,6 +10,7 @@ abstract class _Exceptions {
   static String formatException = "Bad response format";
 }
 
+// Se encarga de hacer la llamada a la api
 abstract class ApiService {
   /// POST
   /// Recibe: body {Map}, url endpoint {String}, headers {Map}
