@@ -1,0 +1,15 @@
+// Recibe la data para enviarla al servicio
+class SignInBodyParameters {
+  SignInBodyParameters({
+    required this.email,
+    required this.password,
+  });
+
+  final String email;
+  final String password;
+
+  Map<String, dynamic> toMap() => {
+        "email": email,
+        "password": password,
+      };
+}

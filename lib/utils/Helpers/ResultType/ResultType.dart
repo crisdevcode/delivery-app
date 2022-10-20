@@ -12,5 +12,5 @@ class Result<T, E> {
       : status = ResultStatus.error,
         value = null;
 
-  Result._internal(this.status, this.error, this.value);
+  Result(this.status, this.value, this.error);
 }
