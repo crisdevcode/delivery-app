@@ -1,6 +1,6 @@
-import 'package:delivery/services/firebase_services/auth_firebase_services/auth_firebase_interface.dart';
+import 'package:delivery/services/firebase_services/auth_firebase_services/interfaces/auth_firebase_interface.dart';
 
-class DefaulSignInService extends SignInService {
+class DefaultSignInService extends SignInService {
   @override
   Future<Map<String, dynamic>> signIn(
       {required Map<String, dynamic> bodyParameters}) {
