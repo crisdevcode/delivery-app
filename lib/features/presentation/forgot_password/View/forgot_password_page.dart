@@ -1,3 +1,5 @@
+import 'package:delivery/features/presentation/forgot_password/View/Components/text_form_field_forgot_email.dart';
+import 'package:delivery/features/presentation/forgot_password/ViewModel/forgot_password_view_model.dart';
 import 'package:flutter/material.dart';
 // Colors
 import 'package:delivery/colors/colors.dart';
@@ -7,8 +9,19 @@ import 'package:delivery/features/presentation/common_widgets/Headers/header_tex
 import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
 import 'package:delivery/features/presentation/common_widgets/Alerts/alert_dialog.dart';
 
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
+
+  @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  // Dependencias
+  final ForgotPasswordViewModel viewModel;
+
+  _ForgotPasswordState({ForgotPasswordViewModel? forgotPasswordViewModel})
+      : viewModel = forgotPasswordViewModel ?? DefaultForgotPasswordViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +54,12 @@ class ForgotPassword extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         fontSize: 15.0)),
               ),
-              _emailInput(),
+              TextFormFieldEmailUpdatePassword(viewModel: viewModel),
               roundedButton(
                   labelButton: 'Enviar',
                   color: colorOrange,
                   func: () {
-                    _showForgotAlert(context);
+                    _ctaButtonTapped(context);
                   })
             ],
           ),
@@ -56,32 +69,21 @@ class ForgotPassword extends StatelessWidget {
   }
 }
 
-Widget _emailInput() {
-  return Container(
-    margin: const EdgeInsets.only(top: 40.0),
-    padding: const EdgeInsets.only(left: 20.0),
-    decoration: BoxDecoration(
-        color: const Color.fromRGBO(142, 142, 147, 1.2),
-        borderRadius: BorderRadius.circular(30.0)),
-    child: const TextField(
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-          hintText: 'Correo electrónico',
-          border: OutlineInputBorder(borderSide: BorderSide.none)),
-    ),
-  );
-}
-
-void _showForgotAlert(BuildContext context) {
-  showAlertDialog(
-      context,
-      const AssetImage('assets/lock.png'),
-      "Tu contraseña ha sido restablecida",
-      "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña.",
-      roundedButton(
-          labelButton: "Listo",
-          color: colorOrange,
-          func: () {
-            Navigator.pushNamed(context, 'login');
-          }));
+extension UserActions on _ForgotPasswordState {
+  void _ctaButtonTapped(BuildContext context) {
+    viewModel.updatePassword().then((value) {
+      showAlertDialog(
+          context,
+          const AssetImage('assets/lock.png'),
+          "Tu contraseña ha sido restablecida",
+          "En breve recibirás un correo electrónico con un código para establecer una nueva contraseña.",
+          roundedButton(
+              context: context,
+              labelButton: 'Listo',
+              color: colorOrange,
+              func: () {
+                Navigator.pushNamed(context, 'login');
+              }));
+    });
+  }
 }

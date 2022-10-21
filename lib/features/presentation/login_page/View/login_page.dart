@@ -61,12 +61,12 @@ class LoginPage extends StatelessWidget with BaseView {
                                   AutovalidateMode.onUserInteraction,
                               child: Column(
                                 children: [
-                                  const Text("Welcome Back",
+                                  const Text("Bienvenid@",
                                       style: TextStyle(
                                           color: colorPrimary,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 30.0)),
-                                  const Text("Login to you account",
+                                  const Text("Inicia sesión con tu cuenta",
                                       style: TextStyle(
                                           color: colorGray,
                                           fontWeight: FontWeight.w500,
@@ -74,17 +74,17 @@ class LoginPage extends StatelessWidget with BaseView {
                                   CustomTextFormField(
                                       textFormFieldType:
                                           CustomTextFormFieldType.email,
-                                      hintext: 'Email',
+                                      hintext: 'Correo electrónico',
                                       delegate: _viewModel),
                                   CustomTextFormField(
                                       textFormFieldType:
                                           CustomTextFormFieldType.password,
-                                      hintext: 'Password',
+                                      hintext: 'Contraseña',
                                       delegate: _viewModel),
                                   roundedButton(
                                       context: context,
                                       color: colorOrange,
-                                      labelButton: 'Log in',
+                                      labelButton: 'Iniciar sesión',
                                       func: () {
                                         _ctaButtonTapped(context);
                                       }),
@@ -95,7 +95,8 @@ class LoginPage extends StatelessWidget with BaseView {
                                         Navigator.pushNamed(
                                             context, 'forgot-password');
                                       },
-                                      child: const Text('Forgot you password?',
+                                      child: const Text(
+                                          '¿Olvidaste tu contraseña?',
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.w400,
@@ -108,7 +109,7 @@ class LoginPage extends StatelessWidget with BaseView {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        const Text("Don't have an account?",
+                                        const Text("¿No tienes una cuenta?",
                                             style: TextStyle(
                                                 color: colorGray,
                                                 fontWeight: FontWeight.w500,
@@ -121,7 +122,7 @@ class LoginPage extends StatelessWidget with BaseView {
                                           child: Container(
                                             margin: const EdgeInsets.symmetric(
                                                 horizontal: 10.0),
-                                            child: const Text('Sign up',
+                                            child: const Text('Registrarse',
                                                 style: TextStyle(
                                                     color: colorOrange,
                                                     fontWeight: FontWeight.w400,

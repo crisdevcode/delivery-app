@@ -15,7 +15,7 @@ class LoadingView extends StatelessWidget {
               backgroundColor: colorOrange,
             ),
             SizedBox(height: 10),
-            Text('Loading...')
+            Text('Cargando...')
           ],
         ),
       ),
