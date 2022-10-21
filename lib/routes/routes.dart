@@ -15,7 +15,7 @@ import 'package:delivery/features/presentation/profile_detail_page/profile_detai
 
 final routes = <String, WidgetBuilder>{
   'welcome': (BuildContext context) => const WelcomePage(),
-  'login': (BuildContext context) => const LoginPage(),
+  'login': (BuildContext context) => LoginPage(),
   'forgot-password': (BuildContext context) => const ForgotPassword(),
   'sign-up': (BuildContext context) => SignUpPage(),
   'tabs': (BuildContext context) => const TabsPage(),
