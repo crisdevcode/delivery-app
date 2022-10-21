@@ -1,6 +1,12 @@
+import 'package:delivery/features/presentation/StateProviders/loading_state_provider.dart';
+import 'package:delivery/features/presentation/common_widgets/Alerts/alert_dialog.dart';
+import 'package:delivery/features/presentation/common_widgets/Buttons/rounded_button.dart';
+import 'package:delivery/features/presentation/tabs/profile_tab/Model/profile_tab_view_model.dart';
+import 'package:delivery/features/presentation/welcome_page/View/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:delivery/features/presentation/common_widgets/Headers/header_text.dart';
 import 'package:delivery/colors/colors.dart';
+import 'package:provider/provider.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
@@ -10,18 +16,33 @@ class ProfileTab extends StatefulWidget {
 }
 
 class _ProfileTabState extends State<ProfileTab> {
+  final ProfileTabViewModel _viewModel;
+
+  _ProfileTabState({ProfileTabViewModel? profileTabViewModel})
+      : _viewModel = profileTabViewModel ?? DefaultProfileTabViewModel();
+
   @override
   Widget build(BuildContext context) {
+    // Inicializamos el viewModel
+    _viewModel.initState(
+        loadingState: Provider.of<LoadingStateProvider>(context));
+
     return Scaffold(
-      body: Column(
-        children: [
-          GestureDetector(
-              onTap: () => Navigator.pushNamed(context, 'profile-detail'),
-              child: _header()),
-          _contentProfile(context)
-        ],
-      ),
-    );
+        body: CustomScrollView(
+      slivers: [
+        SliverList(
+            delegate: SliverChildListDelegate([
+          Column(
+            children: [
+              GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, 'profile-detail'),
+                  child: _header()),
+              _contentProfile(context)
+            ],
+          ),
+        ]))
+      ],
+    ));
   }
 }
 
@@ -176,13 +197,34 @@ extension Widgets on _ProfileTabState {
               width: 29,
               height: 29,
             ),
-            title:
-                headerText(text: 'Cerrar sesión', fontWeight: FontWeight.w400),
+            title: const Text('Cerrar sesión',
+                style: TextStyle(fontWeight: FontWeight.w400)),
             trailing: const Icon(Icons.chevron_right, color: colorGray),
-            onTap: () => print('cerrando!'),
+            onTap: () => _signOut(context),
           )
         ],
       ),
     );
+  }
+
+  Future _signOut(BuildContext context) async {
+    await showAlertDialog(
+        context,
+        const AssetImage('assets/logout.png'),
+        'Cierre de sesión en curso',
+        "¿Desea cerrar sesión?",
+        roundedButton(
+            context: context,
+            color: colorOrange,
+            labelButton: 'Cerrar Sesión',
+            func: () {
+              _viewModel.signOut().then((_) {
+                Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const WelcomePage(),
+                        transitionDuration: const Duration(seconds: 0)));
+              });
+            }));
   }
 }

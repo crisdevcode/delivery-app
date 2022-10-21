@@ -16,6 +16,7 @@ abstract class SignUpViewModelInput {
   late TextEditingController dateController;
   late DateTime selectedDate;
   SignUpModel? signUpModel = SignUpModel();
+
   Future<Result<bool, Failure>> signUp();
   bool isFormValidate();
 }

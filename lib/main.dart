@@ -1,7 +1,8 @@
+import 'package:delivery/base/Views/base_view.dart';
 import 'package:delivery/features/presentation/StateProviders/error_state_provider.dart';
 import 'package:delivery/features/presentation/StateProviders/loading_state_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 
 // Routes
 import 'package:delivery/routes/routes.dart';
@@ -18,22 +19,41 @@ class AppState extends StatelessWidget {
     return MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => ErrorStateProvider()),
       ChangeNotifierProvider(create: (_) => LoadingStateProvider())
-    ], child: const MyApp());
+    ], child: MyAppUserState());
+  }
+}
+
+class MyAppUserState extends StatelessWidget with BaseView {
+  MyAppUserState({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: coordinator.start(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            return MyApp(initialRoute: snapshot.data);
+          } else {
+            return const CircularProgressIndicator();
+          }
+        });
   }
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String _initialRoute;
+  const MyApp({super.key, required String initialRoute})
+      : _initialRoute = initialRoute;
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.black));
+    // SystemChrome.setSystemUIOverlayStyle(
+    //     SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.black));
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: routes,
-        initialRoute: 'welcome',
+        initialRoute: _initialRoute,
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
